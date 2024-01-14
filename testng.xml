@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LUMA_Website">
+    <listeners>
+        <listener class-name="LUMA_Website.utilities.listeners.TestNGListener"/>
+    </listeners>
+    <test name="Comparing and buying products">
+        <classes>
+            <class name="LUMA_Website.utilities.extent_report.ExtentReport"/>
+            <class name="LUMA_Website.tests.comparing_two_products_buying_one.compareAndBuyingRunner"/>
+        </classes>
+    </test>
+</suite>
