@@ -12,5 +12,5 @@ Feature: creating new user account
     And click on create an account button in create new customer account page
     Then home page should be displayed
     Examples:
-      | first name | last name | email           | password    |  |
-      | Alyaa      | Mohamed   | alyaa@gmail.com | Password123 |  |
+      | first name | last name | email               | password    |  |
+      | Alyaa      | Mohamed   | alyaa1111@gmail.com | Password123 |  |

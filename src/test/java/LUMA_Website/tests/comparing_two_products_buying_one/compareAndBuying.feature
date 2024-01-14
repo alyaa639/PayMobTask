@@ -37,6 +37,6 @@ Feature: comparing two products and adding buying one of them
     And click on place order button in review and payments page
     Then success message should be "<success message>"
     Examples:
-      | first name | last name | email                    | password     | address | postal code | success message              | mobile number | city      |  |
-      | alyaa      | mohamed   | alyaamohame236@gmail.com | Password123@ | arizona | 12345       | Thank you for your purchase! | 012235665885  | parkAvenu |  |
+      | first name | last name | email                      | password     | address | postal code | success message              | mobile number | city      |  |
+      | alyaa      | mohamed   | alyaamohame68978@gmail.com | Password123@ | arizona | 12345       | Thank you for your purchase! | 012235665885  | parkAvenu |  |
 

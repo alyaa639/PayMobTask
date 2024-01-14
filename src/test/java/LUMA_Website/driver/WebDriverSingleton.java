@@ -36,6 +36,9 @@ public class WebDriverSingleton {
     public static void close() {
         webDriver.close();
     }
+    public static void quit(){
+        webDriver.quit();
+    }
 
     public static void maximizeTheWindow() {
         webDriver.manage().window().maximize();

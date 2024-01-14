@@ -17,7 +17,7 @@ public class HooksHandler extends BaseTest {
     String LumaWebsiteLink;
 
     @Before(order = 1)
-    public void setUpJawwyLink() throws IOException {
+    public void setUpLUMALink() throws IOException {
         edgeDriver = WebDriverSingleton.getDriverSingleton();
         linksProperties = ReadPropertiesFile.setUrlsProperties();
         LumaWebsiteLink = linksProperties.getProperty("LumaWebsiteLink");
@@ -25,16 +25,16 @@ public class HooksHandler extends BaseTest {
 
         WebDriverSingleton.maximizeTheWindow();
     }
-    @Before(value = "@Subscription", order = 1)
+    @Before(value = "@Luma", order = 1)
     public void startTCHooks(Scenario scenario) {
         ExtentReport.setScenario(scenario);
         ExtentReport.startTC();
     }
-    @Before(value = "@Subscription", order = 2)
+    @Before(value = "@Luma", order = 2)
     public void setStepDefs() throws NoSuchFieldException, IllegalAccessException {
         ExtentReport.setStepDefs();
     }
-    @AfterStep(value = "@Subscription")
+    @AfterStep(value = "@Luma")
     public void
     afterStep(Scenario scenario) {
         String stepName = ExtentReport.getCurrentStepName();
@@ -50,20 +50,25 @@ public class HooksHandler extends BaseTest {
             ExtentReport.getTest().log(logStatus,stepName);
         }
     }
-    @After(value = "@Subscription", order = 1)
+    @After(value = "@Luma", order = 1)
     public void endTC() {
         if (ExtentReport.isCurrentlyUsingReport()) {
             ExtentReport.getExtent().flush();
         }
     }
 
-    @After(value = "@Subscription", order = 0)
+    @After(value = "@Luma", order = 0)
     public void tearDownSiebel() throws InterruptedException {
         edgeDriver.resetCache();
         closeWebDriverAfterAllTestsHook();
+        edgeDriver.close();
+        edgeDriver.quit() ;
+
+
     }
 
     private void closeWebDriverAfterAllTestsHook() {
+
         Runtime.getRuntime().addShutdownHook(new Thread(() -> { WebDriverSingleton.close(); }));
     }
 }

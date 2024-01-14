@@ -48,7 +48,8 @@ public class compareAndBuyingStepDefs extends BaseTest {
     }
 
     @When("click on proceed to check out button in second product page")
-    public void clickOnProceedToCheckOutButtonInSecondProductPage() {
+    public void clickOnProceedToCheckOutButtonInSecondProductPage() throws InterruptedException {
+        Thread.sleep(3000);
         browser.landingPage.secondProductPage.clickOnProceedToCheckOut();
     }
 
